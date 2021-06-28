@@ -1,0 +1,10 @@
+GET http://localhost:7000/notes
+###
+POST http://localhost:7000/notes
+
+{
+    "userName": "jesus.garcia",
+    "text": "Nota de prueba"
+}
+###
+GET http://localhost:7000/notes/search/findByUserName?userName=jesus.garcia
