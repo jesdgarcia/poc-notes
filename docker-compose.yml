@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+ 
+  notes-back:
+    build: notes-back
+    ports:
+      - 7000:7000
+    stdin_open: true
+    tty: true
+    logging:
+      driver: "json-file"
+      options:
+          max-file: "5"
+          max-size: "10m"
+
+  notes-front:
+    build: notes-front
+    depends_on:
+      - notes-back
+    ports:
+      - 3000:80
+    logging:
+      driver: "json-file"
+      options:
+          max-file: "5"
+          max-size: "10m"
